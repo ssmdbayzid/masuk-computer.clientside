@@ -8,6 +8,7 @@ import LogIn from './Pages/LogIn/LogIn';
 import ManageItem from './Pages/ManageItem/ManageItem';
 import AddItems from './Pages/AddItems/AddItems';
 import MyItems from './Pages/MyItems/MyItems';
+import Signup from './Pages/Signup/Signup';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/add-items' element={<AddItems></AddItems>}></Route>
           <Route path='/my-items' element={<MyItems></MyItems>}></Route>
           <Route path='/log-in' element={<LogIn></LogIn>}></Route>
+          <Route path='/sign-up' element={<Signup></Signup>}></Route>
       </Routes>
 
       <Footer></Footer>

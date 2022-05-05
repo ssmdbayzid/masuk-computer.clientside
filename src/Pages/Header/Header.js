@@ -21,6 +21,7 @@ const Header = () => {
                     <Link to={'/add-items'}>Add Items</Link>
                     <Link to={'/my-items'}>My Items</Link>
                     <Link to={'/log-in'}>Log In</Link>
+                    <Link to={'/sign-up'}>Register</Link>
             </nav>
         </div>
     );
