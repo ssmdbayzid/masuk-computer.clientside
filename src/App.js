@@ -20,7 +20,6 @@ function App() {
           <Route path='/add-items' element={<AddItems></AddItems>}></Route>
           <Route path='/my-items' element={<MyItems></MyItems>}></Route>
           <Route path='/log-in' element={<LogIn></LogIn>}></Route>
-
       </Routes>
 
       <Footer></Footer>
