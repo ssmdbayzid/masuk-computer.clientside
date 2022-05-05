@@ -5,15 +5,15 @@ import './Header.css'
 
 const Header = () => {
     return (
-        <div style={{justifyContent: 'space-between'}} className='flex items-center px-3'>
-            <div className='flex items-center'>
+        <div style={{justifyContent: 'space-between', position: 'static'}} className='w-full py-3 header flex items-center px-16'>
+            <div style={{marginRight: '100px'}} className='flex items-center'>
                 <img style={{height:'30px', width: '30px'}} src={img} alt='logo'/>
                 <div className='mx-3'>
                 <h5 className='text-base' style={{display: 'inline'}}>Masuk Computers & Solution Center</h5>
                 <p className='text-xs'>A Complete IT Sales & Solutions Center</p>
                 </div>
             </div>
-            <nav className='text-xs'>
+            <nav className='text-lg'>
                     <Link to={'/home'}>Home</Link>
                     <Link to={'/about'}>About</Link>
                     <Link to={'/contact'}>Contact</Link>
@@ -22,7 +22,6 @@ const Header = () => {
                     <Link to={'/my-items'}>My Items</Link>
                     <Link to={'/log-in'}>Log In</Link>
             </nav>
-
         </div>
     );
 };

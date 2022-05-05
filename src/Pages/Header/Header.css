@@ -4,3 +4,6 @@ nav a:hover{
 nav a{
     margin-left: 10px;
 }
+.header{
+    background-color: rgba(39, 39, 40, 0.185);
+}
