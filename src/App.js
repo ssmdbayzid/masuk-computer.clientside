@@ -1,7 +1,7 @@
 
 import './App.css';
 import Header from './Pages/Header/Header';
-import Footer from './Pages/Footer/Footer';
+// import Footer from './Pages/Footer/Footer';
 import Home from './Pages/Home/Home';
 import { Route, Routes } from 'react-router-dom';
 import LogIn from './Pages/LogIn/LogIn';
@@ -24,7 +24,6 @@ function App() {
           <Route path='/sign-up' element={<Signup></Signup>}></Route>
       </Routes>
 
-      <Footer></Footer>
     </div>
   );
 }

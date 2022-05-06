@@ -4,7 +4,7 @@ import socialLogo from '../images/social-logo.png'
 const Footer = () => {
     return (
     
-    <div style={{ position: 'absolute', bottom: 0, backgroundColor: 'rgba(39, 39, 40, 0.185)', borderTop: '1px solid black', width: '100%', marginTop:'50px', paddingTop: '15px', bottom: 0 }}>
+    <div style={{ position: 'related', bottom: 0, backgroundColor: 'rgba(39, 39, 40, 0.185)', borderTop: '1px solid black', width: '100%', marginTop:'50px', paddingTop: '15px', bottom: 0 }}>
 
             <div className='px-8 items-center flex' style={{ justifyContent: 'space-between', width: '100%', display: 'flex' }}>
                 <div>

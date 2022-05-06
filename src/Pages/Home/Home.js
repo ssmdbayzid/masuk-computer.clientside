@@ -1,20 +1,27 @@
 
-// import React, { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
+import useHomeProduct from '../../Hooks/useHomeProduct';
 import Banner from '../Banner/Banner';
-import Product from '../Product/Product';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
-    // const [product, setProduct] = useState([])
+
+    const [products] = useHomeProduct()
+    // const [products, setProducts] = useState()
 
     // useEffect(()=>{
-    //     fetch('service.json')
+    //     fetch('https://young-cove-45489.herokuapp.com/home')
     //     .then(res=>res.json())
-    //     .then(data=> setProduct(data))
+    //     .then(data=>setProducts(data))
     // },[])
+    // console.log(products)
+    console.log(products)
+
     return (
         <div>
             <Banner></Banner>
-            <Product></Product>
+                <h1>My Total Product :</h1>
+            <Footer></Footer>
         </div>
     );
 };

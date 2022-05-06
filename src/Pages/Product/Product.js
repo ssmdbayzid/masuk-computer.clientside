@@ -6,6 +6,7 @@ const Product = () => {
     return (
         <div>
             <table id="products">
+                <thead>
                 <tr>
                     <th>Product Name</th>
                     <th>Images</th>
@@ -15,6 +16,8 @@ const Product = () => {
                     <th>Supplier Name</th>
                     <th>Update</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>Alfreds Futterkiste</td>
                     <td>
@@ -93,6 +96,7 @@ const Product = () => {
                     <Link to={'/home'} style={{backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px'}} >Update</Link>
                     </td>
                 </tr>
+                </tbody>
             </table>
         </div>
     );
