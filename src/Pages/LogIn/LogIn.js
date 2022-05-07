@@ -11,8 +11,8 @@ const LogIn = () => {
                 <input className='text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="password" name='password' placeholder='your password' required />
                 <br />
                 <label className="flex items-center ml-14 m-2 w-3/4 px-3 text-red-700">
-                    <input type="checkbox" class="form-checkbox"/>
-                        <span class="ml-2">Not Registered?</span>
+                    <input type="checkbox" className="form-checkbox"/>
+                        <span className="ml-2">Not Registered?</span>
                 </label>
                 <input className='cursor-pointer bg-orange-300 hover:bg-orange-400 text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="submit" value='Log In' />
             </form>
