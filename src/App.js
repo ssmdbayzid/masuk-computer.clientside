@@ -9,6 +9,7 @@ import ManageItem from './Pages/ManageItem/ManageItem';
 import AddItems from './Pages/AddItems/AddItems';
 import MyItems from './Pages/MyItems/MyItems';
 import Signup from './Pages/Signup/Signup';
+import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           <Route path='/my-items' element={<MyItems></MyItems>}></Route>
           <Route path='/log-in' element={<LogIn></LogIn>}></Route>
           <Route path='/sign-up' element={<Signup></Signup>}></Route>
+          <Route path='/inventory/:id' element={
+          <UpdateProduct></UpdateProduct>}
+          ></Route>
       </Routes>
 
     </div>

@@ -14,6 +14,7 @@ const Signup = () => {
 
     if(user){
         navigate('/home')
+        console.log(user)
     }
 
     const handleCkeckbox = e =>{
