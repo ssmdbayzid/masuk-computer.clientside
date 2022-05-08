@@ -1,12 +1,30 @@
 import React from 'react';
 import img from '../images/social-logo.png'
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { useNavigate } from 'react-router-dom';
+
 const LogIn = () => {
+    const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth);
+
+    const navigate = useNavigate()
+
+    if(user){
+        navigate('home')
+    }
+    const handleSignIn = e => {
+        e.preventDefault()
+        const email = e.target.email.value;
+        const pass = e.target.password.value;
+        signInWithEmailAndPassword(email, pass)    
+    }
+
     return (
         <div className='bg-gray-200 mx-auto w-2/5 py-16 my-8'>
             <h1 className='text-orange-600 text-2xl'>Please Log In</h1>
             <br />
-            <form className='w-full'>
-                <input className='text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="text" name='name' placeholder='your name' autoComplete='off' required />
+            <form onSubmit={handleSignIn} className='w-full'>
+                <input className='text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="email" name='email' placeholder='your name' autoComplete='off' required />
                 <br />
                 <input className='text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="password" name='password' placeholder='your password' required />
                 <br />
@@ -14,6 +32,7 @@ const LogIn = () => {
                     <input type="checkbox" className="form-checkbox"/>
                         <span className="ml-2">Not Registered?</span>
                 </label>
+                {error}
                 <input className='cursor-pointer bg-orange-300 hover:bg-orange-400 text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="submit" value='Log In' />
             </form>
             <img className='cursor-pointer w-1/2 mx-auto mt-3 rounded-sm' src={img} alt="" />

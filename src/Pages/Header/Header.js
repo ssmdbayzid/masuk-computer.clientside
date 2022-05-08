@@ -1,3 +1,4 @@
+// import { Button } from 'bootstrap';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
@@ -6,6 +7,7 @@ import img from '../images/logo.png'
 import './Header.css'
 
 const Header = () => {
+    const [user] = useAuthState()
 
     return (
         <div style={{justifyContent: 'space-between', position: 'static'}} className='w-full py-3 header flex items-center px-16'>
@@ -24,10 +26,8 @@ const Header = () => {
                     <Link to={'/manage-items'}>Manage Items</Link>
                     <Link to={'/add-items'}>Add Items</Link>
                     <Link to={'/my-items'}>My Items</Link>
-
-                    {  
-                        <Link to={'/log-in'}>Log In</Link>
-                    }
+                    { user && <button>Log Out</button>}
+                    
                     <Link to={'/sign-up'}>Register</Link>
             </nav>
         </div>
