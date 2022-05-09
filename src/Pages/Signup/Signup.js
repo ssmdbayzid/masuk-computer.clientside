@@ -1,8 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import img from '../images/google-signup.png'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+
 
 
 
@@ -41,8 +43,8 @@ const Signup = () => {
                 <input className='text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="text" name='email' placeholder='your email' autoComplete='off' required />
                 <br />
                 <input className='text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="password" name='password' placeholder='your password' required />
-                <p>{error}</p>
                 <br />
+                {error  && error}
                 <label className="flex items-center ml-14 m-2 w-3/4 px-3 text-red-700">
                     <input onClick={handleCkeckbox} type="checkbox" className="form-checkbox"/>
                         <span className="ml-2">Have An Account?</span>
