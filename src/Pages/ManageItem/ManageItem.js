@@ -11,7 +11,7 @@ const ManageItem = () => {
     const handleRemoveProduct = (id) => {
         const proceed = window.confirm('Are You Sire');
         if(proceed){
-            const url = `https://young-cove-45489.herokuapp.com/${id}`;
+            const url = `http://localhost:5000//${id}`;
 
             fetch( url,{
                 method: 'DELETE'
