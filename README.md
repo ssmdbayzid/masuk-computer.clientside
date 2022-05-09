@@ -1,10 +1,16 @@
-# Getting Started with Create React App
+# Masuk Computer Ware House
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [My React Repository](masuk-computers-warehouse.web.app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+My Total Work Summary 
+
+* I create A Google Login Link
+* I create A Update Remove Items
+* I Create A Manage Items for My Products 
+* I Load 6 Items In My Home Page
+* I am Up Get Data from Server
 
 ### `npm start`
 
