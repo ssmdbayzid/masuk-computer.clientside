@@ -9,7 +9,7 @@ const ManageItem = () => {
     const handleRemoveProduct = (id) => {
         const proceed = window.confirm('Are You Sire');
         if(proceed){
-            const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
+            const url = `http://localhost:5000/inventory/${id}`;
             fetch( url,{
                 method: 'DELETE'
             })

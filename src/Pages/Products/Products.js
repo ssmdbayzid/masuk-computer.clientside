@@ -3,16 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Products = ({product}) => {
 
-
-    
-    // const navigate = useNavigate()
-    // const handleNavButton = ()=>{
-    //     navigate('/inventory/:id')
-    // }
-
-    // onClick={handleNavButton}
     const {name, company, description, picture, price, stock_Quantity, _id } = product;
-    console.log(stock_Quantity)
     return (
         <div>
             <div className='p-3 m-3 border rounded'>

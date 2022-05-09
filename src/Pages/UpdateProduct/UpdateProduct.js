@@ -57,8 +57,7 @@ const UpdateProduct = () => {
             .then(res=>res.json())
             .then(data=>{
                 alert('Qty update successfully', data)
-            })
-        
+            })     
     }
 
     return (
