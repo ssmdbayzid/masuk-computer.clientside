@@ -1,0 +1,20 @@
+table{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    border-collapse: collapse;
+}
+table th, td{
+    border: 1px solid #ddd;;
+}
+table tr:nth-child(even){
+    background-color: rgb(154, 213, 249, 0.3) ;
+}
+table th{
+    background-color: darkblue;
+    color: white;
+    padding: 5px 10px;
+}
+td img{
+    margin: 0 auto;
+}

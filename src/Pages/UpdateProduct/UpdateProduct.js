@@ -14,7 +14,7 @@ const UpdateProduct = () => {
     console.log(product)
 
     useEffect(()=>{
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
         fetch(url)
         .then(res=>res.json())
         .then(data=>setProduct(data))
@@ -27,7 +27,7 @@ const UpdateProduct = () => {
         console.log(updateQty)
 
 
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -46,7 +46,7 @@ const UpdateProduct = () => {
         const addQty = parseInt(e.target.number.value)
         const updateQty = stock_Quantity + addQty;
 
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

@@ -12,7 +12,7 @@ const Product = ({product}) => {
         console.log('delete Items', id)
 
         if(proceed){
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

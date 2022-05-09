@@ -1,38 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import useProduct from '../../Hooks/useProduct';
-import Product from '../Product/Product';
 // import useProduct from '../../Hooks/useProduct';
+import './ManageItem.css'
 
 
 const ManageItem = () => {
-
-    // const handleRemoveProduct = (id) => {
-
-    //     const proceed = window.confirm("Are you sure !!!")
-    //     console.log('delete Items', id)
-
-    //     if(proceed){
-    //         const url = `http://localhost:5000/inventory/${id}`;
-    //         fetch(url, {
-    //             method: 'DELETE',
-    //         })
-    //         .then(res=>res.json())
-    //         .then(data=>{
-    //             console.log(data)
-    //         })
-    //     }      
-    // }
-    // const [products] = useProduct()
     const [products, setProducts] = useState()
+
+    const handleRemoveProduct = (id) => {
+        const proceed = window.confirm('Are You Sire');
+        if(proceed){
+            const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
+            fetch( url,{
+                method: 'DELETE'
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+                if(data.deletedCount > 0){
+                    const remainingProduct = products.filter(product => product._id !== id);
+                    setProducts(remainingProduct)
+                }
+            })
+        }
+    }
 
     useEffect(() => {
         fetch('https://young-cove-45489.herokuapp.com/product')
             .then(res => res.json())
-            .then(data => { setProducts(data) })
+            .then(data => {
+            setProducts(data)
+        })
 
     }, [])
 
-    console.log(products)
     return (
         <div>
             <h5 className='bg-gray-600 text-3xl py-3 my-3 text-orange-600'>Manage Product Storization</h5>
@@ -51,8 +51,8 @@ const ManageItem = () => {
                 </thead>
 
                 {
-                products && products.map(product =>
-                <tbody key={product?._id}>
+                    products && products.map(product =>
+                        <tbody key={product?._id}>
                             <tr>
                                 <td>{product.name}</td>
                                 <td>
@@ -63,12 +63,12 @@ const ManageItem = () => {
                                 <td>{product.stock_Quantity}</td>
                                 <td>{product.company}</td>
                                 <td>
-                                    <button style={{ backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px' }} >Remove</button>
+                                    <button onClick={()=>handleRemoveProduct(product._id)} style={{ backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px' }} >Remove</button>
                                 </td>
                             </tr>
-                </tbody>)
+                        </tbody>)
                 }
-                
+
 
             </table>
 
