@@ -10,7 +10,7 @@ const AddItems = () => {
 
         console.log(data)
         
-        const url = 'http://localhost:5000/product'
+        const url = 'https://young-cove-45489.herokuapp.com/product'
         fetch(url, {
             method: 'POST',
 
