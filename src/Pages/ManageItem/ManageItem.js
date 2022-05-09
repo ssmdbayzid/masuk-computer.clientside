@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 // import useProduct from '../../Hooks/useProduct';
 import './ManageItem.css'
 
@@ -38,7 +40,7 @@ const ManageItem = () => {
         <div>
             <h5 className='bg-gray-600 text-3xl py-3 my-3 text-orange-600'>Manage Product Storization</h5>
 
-            <table>
+            <table className='mb-5'>
                 <thead>
                     <tr>
                         <th>Product Name</th>
@@ -47,7 +49,7 @@ const ManageItem = () => {
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Supplier Name</th>
-                        <th>Update</th>
+                        <th>Remove Items</th>
                     </tr>
                 </thead>
 
@@ -69,9 +71,9 @@ const ManageItem = () => {
                             </tr>
                         </tbody>)
                 }
-
-
             </table>
+
+            <Link className='bg-green-400 hover:bg-green-600 py-3 px-8 m-16' to={'/add-items'}>Add New Product </Link>
 
 
         </div >

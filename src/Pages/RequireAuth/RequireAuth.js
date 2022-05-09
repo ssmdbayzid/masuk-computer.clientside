@@ -1,31 +1,20 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Navigate, useLocation} from 'react-router-dom';
+import auth from '../../firebase.init';
+
 import './RequireAuth.css'
 
-const RequireAuth = () => {
+const RequireAuth = ({children}) => {
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+    const [user] = useAuthState(auth)
 
-  console.log(watch("example"));
-    return (
-        <div>
-            <h1>This is require Auth</h1>
-            <form className='border flex flex-col w-40' onSubmit={handleSubmit(onSubmit)}>
-                {/* register your input into the hook by invoking the "register" function */}
-                <input defaultValue="test" {...register("example")} />
-                <br />
-                {/* include validation with required or other standard HTML validation rules */}
-                <input {...register("exampleRequired", { required: true })} />
-                <br />
-                {/* errors will return when field validation fails  */}
-                <br />
-                {errors.exampleRequired && <span>This field is required</span>}
+    const location = useLocation()
+    if(!user){
+        return <Navigate to="/log-in" state={{ from: location }} replace />;
+    }
 
-                <input type="submit" />
-            </form>
-        </div>
-    );
+    return children;
 };
 
 export default RequireAuth;

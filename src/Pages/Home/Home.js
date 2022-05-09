@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 // import useHomeProduct from '../../Hooks/useHomeProduct';
 import Banner from '../Banner/Banner';
 import Footer from '../Footer/Footer';
@@ -23,7 +24,10 @@ const Home = () => {
         product={product}
         key={product._id}></Products>)}
         </div>
-           
+
+        <Link className='bg-green-400 hover:bg-green-600 py-3 px-8 m-16' to={'/manage-items'}>Manage Inventorie </Link>
+
+
             <Footer></Footer>
         </div>
     );

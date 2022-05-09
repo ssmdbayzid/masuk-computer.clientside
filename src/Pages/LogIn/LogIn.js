@@ -2,16 +2,25 @@ import React from 'react';
 import img from '../images/google-login.png'
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
     const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, user1, error1] = useSignInWithGoogle(auth);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname | "/home"
+    console.log(from)
+
+    const googleLogIn = e =>{
+        e.preventDefault()
+        signInWithGoogle()
+    }
 
     if(user || user1){
-        navigate('home')
+        navigate(from, { replace: true });
     }
     const handleSignIn = e => {
         e.preventDefault()
@@ -19,6 +28,7 @@ const LogIn = () => {
         const pass = e.target.password.value;
         signInWithEmailAndPassword(email, pass)    
     }
+
 
     return (
         <div className='bg-gray-200 mx-auto w-2/5 py-16 my-8'>
@@ -38,7 +48,7 @@ const LogIn = () => {
                 </p>
                 <input className='cursor-pointer bg-orange-300 hover:bg-orange-400 text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="submit" value='Log In' />
             </form>
-            <img onClick={()=> signInWithGoogle()} className='cursor-pointer w-1/2 mx-auto mt-3 rounded-sm' src={img} alt="" />
+            <img onClick={googleLogIn} className='cursor-pointer w-1/2 mx-auto mt-3 rounded-sm' src={img} alt="" />
         </div>
     );
 };
