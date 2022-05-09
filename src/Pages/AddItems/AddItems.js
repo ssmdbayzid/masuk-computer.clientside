@@ -6,7 +6,24 @@ const AddItems = () => {
     // const { name, company, description, picture, price, stock_Quantity } = product;
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+
+        console.log(data)
+        
+        const url = 'http://localhost:5000/product'
+        fetch(url, {
+            method: 'POST',
+
+            headers: {
+                'content-type' : 'APPLICATION/JSON'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(result=>{
+            console.log(result)
+        })
+    };
       
     // const handleAddNewProduct = e => {
 

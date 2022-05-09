@@ -10,6 +10,8 @@ const UpdateProduct = () => {
 
 
     const [product, setProduct] = useState({})
+
+    console.log(product)
     const { name, company, description, picture, price, stock_Quantity } = product;
     useEffect(()=>{
         const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
@@ -21,7 +23,7 @@ const UpdateProduct = () => {
 
     const handleDeliveryQty = e => {
         e.preventDefault()
-        const updateQty = stock_Quantity - 1;
+        const updateQty = parseInt(stock_Quantity) - 1;
 
 
         const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
@@ -41,7 +43,7 @@ const UpdateProduct = () => {
     const handleAddQty = e => {
         e.preventDefault()
         const addQty = parseInt(e.target.number.value)
-        const updateQty = stock_Quantity + addQty;
+        const updateQty = parseInt(stock_Quantity) + addQty;
 
         const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
             fetch(url, {
