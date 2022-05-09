@@ -12,6 +12,7 @@ import Signup from './Pages/Signup/Signup';
 import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import NotFount from './Pages/NotFound/NotFount';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/home' element={<Home></Home>}></Route>
+          <Route path='/blog' element={<Blog></Blog>}></Route>
           <Route path='/manage-items' element={
           <ManageItem></ManageItem>
           }></Route>
