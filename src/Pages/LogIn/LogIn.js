@@ -1,15 +1,16 @@
 import React from 'react';
-import img from '../images/social-logo.png'
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import img from '../images/google-login.png'
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
     const [signInWithEmailAndPassword, user, error] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, user1, error1] = useSignInWithGoogle(auth);
 
     const navigate = useNavigate()
 
-    if(user){
+    if(user || user1){
         navigate('home')
     }
     const handleSignIn = e => {
@@ -32,10 +33,12 @@ const LogIn = () => {
                     <input type="checkbox" className="form-checkbox"/>
                         <span className="ml-2">Not Registered?</span>
                 </label>
-                {error}
+                <p>
+                {error && error} {error1 && error1}
+                </p>
                 <input className='cursor-pointer bg-orange-300 hover:bg-orange-400 text-lg py-1 m-2 w-3/4 px-3 rounded-sm' type="submit" value='Log In' />
             </form>
-            <img className='cursor-pointer w-1/2 mx-auto mt-3 rounded-sm' src={img} alt="" />
+            <img onClick={()=> signInWithGoogle()} className='cursor-pointer w-1/2 mx-auto mt-3 rounded-sm' src={img} alt="" />
         </div>
     );
 };

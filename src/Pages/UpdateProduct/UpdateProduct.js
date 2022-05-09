@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -7,32 +8,57 @@ const UpdateProduct = () => {
     const { id } = useParams()
     console.log(id)
 
-    const [user, setUser] = useState({})
 
-    const { name, company, description, picture, price, stock_Quantity } = user;
-    console.log(user)
+    const [product, setProduct] = useState({})
+    const { name, company, description, picture, price, stock_Quantity } = product;
+    console.log(product)
 
-    // send data to server
-
-
-    useEffect(() => {
-        const url = `http://localhost:5000/inventory/${id}`
+    useEffect(()=>{
+        const url = `http://localhost:5000/inventory/${id}`;
         fetch(url)
-            .then(res => res.json())
-            .then(data => setUser(data))
-    }, [])
+        .then(res=>res.json())
+        .then(data=>setProduct(data))
+    },[])
+
 
     const handleDeliveryQty = e => {
         e.preventDefault()
         const updateQty = stock_Quantity - 1;
         console.log(updateQty)
+
+
+        const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify({updateQty})
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                alert('Qty update successfully', data)
+            })
     }
 
     const handleAddQty = e => {
         e.preventDefault()
         const addQty = parseInt(e.target.number.value)
         const updateQty = stock_Quantity + addQty;
-        console.log(updateQty)
+
+        const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify({updateQty})
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                alert('Qty update successfully', data)
+            })
+        
     }
 
     return (
@@ -46,19 +72,6 @@ const UpdateProduct = () => {
                 <p>Supplier: <strong>{company}</strong></p>
                 <button onClick={handleDeliveryQty} className='bg-blue-600 w-3/4 rounded-md m-2 py-1 text-white font-bold'>Delivery</button>
             </div>
-
-
-
-            {/* <div className='p-3 m-3 border rounded'>
-                    <img className='img-fluid' src={picture} alt="" />
-                    <h1 className='font-bold text-2xl'>{name}</h1>
-                    <p>{description}</p>
-                    <h3 className='font-bold text-xl '>Price ${price}</h3>
-                    <p>Stock Quantity: {stock_quantity}</p>
-                    <p className='mb-2'>Supplier: <strong>{company}</strong></p>
-
-                    <button onClick={handleDeliveryQty} className='bg-blue-600 w-full rounded-md py-1 px-12 mx-auto mt-2 text-white font-bold'>Update</button>
-                </div> */}
 
             <div style={{ height: '200px' }} className='bg-green-900 w-fluid p-3 m-5'>
                 <h1 className='text-white text-2xl'>Product Receive Quantity</h1>

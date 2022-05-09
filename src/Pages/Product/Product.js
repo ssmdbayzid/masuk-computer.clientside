@@ -1,10 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import img from '../images/product/footerbg.jpg'
+// import React, { useState } from 'react';
 import './Product.css'
-const Product = () => {
+const Product = ({product}) => {
+    
+    const { name, company, description, picture, price, stock_Quantity } = product;
+
+    const id = product._id
+
+    const handleRemoveProduct = () => {
+
+        const proceed = window.confirm("Are you sure !!!")
+        console.log('delete Items', id)
+
+        if(proceed){
+            const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: 'DELETE',
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+            })
+        }      
+    }
+
+    
+
+
     return (
         <div>
+
             <table id="products">
                 <thead>
                 <tr>
@@ -19,83 +43,18 @@ const Product = () => {
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Alfreds Futterkiste</td>
+                    <td>{name}</td>
                     <td>
-                    <img style={{width: '75px'}} src={img} alt="" />
+                    <img style={{width: '75px'}} src={picture} alt="" />
                     </td>
-                    <td>Germany</td>
-                    <td>$100</td>
-                    <td>10</td>
-                    <td>City Complex</td>
+                    <td>{description}</td>
+                    <td>${price}</td>
+                    <td>{stock_Quantity}</td>
+                    <td>{company}</td>
                     <td>
-                    <Link to={'/home'} style={{backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px'}} >Update</Link>
+                    <button onClick={handleRemoveProduct} style={{backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px'}} >Remove</button>
                     </td>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>
-                    <img style={{width: '75px'}} src={img} alt="" />
-                    </td>
-                    <td>Germany</td>
-                    <td>$100</td>
-                    <td>10</td>
-                    <td>City Complex</td>
-                    <td>
-                    <Link to={'/home'} style={{backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px'}} >Update</Link>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>
-                    <img style={{width: '75px'}} src={img} alt="" />
-                    </td>
-                    <td>Germany</td>
-                    <td>$100</td>
-                    <td>10</td>
-                    <td>City Complex</td>
-                    <td>
-                    <Link to={'/home'} style={{backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px'}} >Update</Link>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>
-                    <img style={{width: '75px'}} src={img} alt="" />
-                    </td>
-                    <td>Germany</td>
-                    <td>$100</td>
-                    <td>10</td>
-                    <td>City Complex</td>
-                    <td>
-                    <Link to={'/home'} style={{backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px'}} >Update</Link>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>
-                    <img style={{width: '75px'}} src={img} alt="" />
-                    </td>
-                    <td>Germany</td>
-                    <td>$100</td>
-                    <td>10</td>
-                    <td>City Complex</td>
-                    <td>
-                    <Link to={'/home'} style={{backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px'}} >Update</Link>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>
-                    <img style={{width: '75px'}} src={img} alt="" />
-                    </td>
-                    <td>Germany</td>
-                    <td>$100</td>
-                    <td>10</td>
-                    <td>City Complex</td>
-                    <td>
-                    <Link to={'/home'} style={{backgroundColor: 'gold', padding: '2px 10px', borderRadius: '10px'}} >Update</Link>
-                    </td>
-                </tr>
+                </tr>    
                 </tbody>
             </table>
         </div>

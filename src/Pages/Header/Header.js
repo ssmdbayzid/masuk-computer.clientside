@@ -1,12 +1,18 @@
-// import { Button } from 'bootstrap';
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useAuthState } from 'react-firebase-hooks/auth';
 import img from '../images/logo.png'
 import './Header.css'
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+    const [user] = useAuthState(auth)
 
+    const handleSignOut = () =>{
+        signOut(auth)
+    }
 
     return (
         <div style={{justifyContent: 'space-between', position: 'static'}} className='w-full py-3 header flex items-center px-16'>
@@ -22,16 +28,16 @@ const Header = () => {
                     <Link to={'/about'}>About</Link>
                     <Link to={'/contact'}>Contact</Link>
 
-                    <Link to={'/manage-items'}>Manage Items</Link>
-                    <Link to={'/add-items'}>Add Items</Link>
-                    <Link to={'/my-items'}>My Items</Link>
-                    {/* { user? <button>Logout</button>
-                    :
-                    <Link to={'/log-in'}>Register</Link>
-                     */
-                    }
+                    { user && <Link to={'/manage-items'}>Manage Items</Link>}
+                    {user && <Link to={'/add-items'}>Add Items</Link>}
+                    {user && <Link to={'/my-items'}>My Items</Link>}
+                    {
+                        user? <button onClick={handleSignOut} className='py-2 px-3 bg-green-600 mx-3 rounded text-white'>Log Out</button>
+                        : 
+                        <Link to={'/log-in'}>Log In</Link> }
+
+                    { user? '' : <Link to={'/sign-up'}>Register</Link>}    
                     
-                    <Link to={'/sign-up'}>Register</Link>
             </nav>
         </div>
     );

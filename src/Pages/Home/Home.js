@@ -23,10 +23,7 @@ const Home = () => {
         product={product}
         key={product._id}></Products>)}
         </div>
-
-
-
-            
+           
             <Footer></Footer>
         </div>
     );
