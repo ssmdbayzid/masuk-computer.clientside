@@ -11,6 +11,7 @@ import MyItems from './Pages/MyItems/MyItems';
 import Signup from './Pages/Signup/Signup';
 import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
+import NotFount from './Pages/NotFound/NotFount';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           </RequireAuth>
           }
           ></Route>
+          <Route path="*" element={<NotFount></NotFount>}></Route>
       </Routes>
 
     </div>
