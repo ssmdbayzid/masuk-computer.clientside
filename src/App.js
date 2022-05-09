@@ -10,6 +10,7 @@ import AddItems from './Pages/AddItems/AddItems';
 import MyItems from './Pages/MyItems/MyItems';
 import Signup from './Pages/Signup/Signup';
 import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/home' element={<Home></Home>}></Route>
+          <Route path='/about' element={<RequireAuth></RequireAuth>}></Route>
           <Route path='/manage-items' element={<ManageItem></ManageItem>}></Route>
           <Route path='/add-items' element={<AddItems></AddItems>}></Route>
           <Route path='/my-items' element={<MyItems></MyItems>}></Route>

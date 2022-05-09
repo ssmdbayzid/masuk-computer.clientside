@@ -25,7 +25,7 @@ const Header = () => {
             </div>
             <nav className='text-lg'>
                     <Link to={'/home'}>Home</Link>
-                    <Link to={'/#'}>About</Link>
+                    <Link to={'/about'}>About</Link>
                     <Link to={'/#'}>Contact</Link>
 
                     { user && <Link to={'/manage-items'}>Manage Items</Link>}

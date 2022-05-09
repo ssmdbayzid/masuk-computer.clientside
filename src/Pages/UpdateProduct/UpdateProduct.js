@@ -11,8 +11,6 @@ const UpdateProduct = () => {
 
     const [product, setProduct] = useState({})
     const { name, company, description, picture, price, stock_Quantity } = product;
-    console.log(product)
-
     useEffect(()=>{
         const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
         fetch(url)
@@ -24,7 +22,6 @@ const UpdateProduct = () => {
     const handleDeliveryQty = e => {
         e.preventDefault()
         const updateQty = stock_Quantity - 1;
-        console.log(updateQty)
 
 
         const url = `https://young-cove-45489.herokuapp.com/inventory/${id}`;
